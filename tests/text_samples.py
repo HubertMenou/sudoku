@@ -1,16 +1,26 @@
+"""
+Sudoku samples provided as multi-line strings
+
+Warning
+-------
+The sudoku described below are used for the tests AS-IS,
+and the outcome of the former tests directly depend on their
+values. Therefore, DO NOT change these sudokus. If in need of
+other test sudokus, insert news one below or use separate files.
+"""
 
 TRIVIAL_TXT = """
-x 9 3  4 6 8  1 5 7
-8 4 1  7 2 5  6 3 9
-7 6 5  1 3 9  8 4 2
+x93 468 157
+841 725 639
+765 139 842
 
-6 2 7  x 9 1  3 8 4
-1 5 4  2 8 3  7 9 6
-3 8 9  6 7 4  2 1 5
+627 x91 384
+154 283 796
+389 674 215
 
-4 7 8  9 1 6  x 2 3
-9 3 2  8 5 7  4 6 1
-5 1 6  3 4 2  9 7 8
+478 916 x23
+932 857 461
+516 342 978
 """
 
 EASY_TXT = """

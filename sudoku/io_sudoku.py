@@ -20,7 +20,9 @@ class IOSudoku:
 
         Different possibilities for the input file:
             - If ``file`` is a single-line str, then it conveys
-              the file name of a sudoku in the sample folder.
+              the file name of a sudoku in the sample folder,
+            - If ``file`` is a multi-line str, then it conveys
+              the sudoku itself,
             - If ``file`` is None, then the IOSudoku is left empty.
 
         :@param file: Loads a sudoku from the file object
