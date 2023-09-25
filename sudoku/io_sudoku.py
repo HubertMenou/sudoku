@@ -19,9 +19,9 @@ class IOSudoku:
         """Input-Output operations for sudokus
 
         Different possibilities for the input file:
-            - If ``file`` is a str, then it conveys
+            - If ``file`` is a single-line str, then it conveys
               the file name of a sudoku in the sample folder.
-            - If ``file`` is None,, then the IOSudoku is left empty.
+            - If ``file`` is None, then the IOSudoku is left empty.
 
         :@param file: Loads a sudoku from the file object
         """
@@ -31,7 +31,10 @@ class IOSudoku:
             return
 
         if isinstance(file, str):
-            self.load_from_file(file)
+            if len(file.splitlines()) == 1:
+                self.load_from_file(file)
+            else:
+                self.load_from_txt(file)
         elif isinstance(file, np.ndarray):
             self.grid = file
         else:
@@ -49,6 +52,10 @@ class IOSudoku:
         with open(path_to_file, "r") as reader:
             txt = reader.read()
 
+        self.load_from_txt(txt)
+
+    def load_from_txt(self, txt: str):
+        """Loads from a str directly describing the sudoku"""
         txt = txt.splitlines()
 
         counter = 0
