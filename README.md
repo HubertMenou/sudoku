@@ -33,7 +33,9 @@ x16 xx2 x7x
 ## Developer notes
 
 To denote *cell* values (1 to 9), use the term *cell values*.
+
 To denote *array* values (0 to 8), use the term *array values*.
+
 `Row index` or `column index` denote a python-like position, with array values.
 
 ## To run tests (from project's root)
