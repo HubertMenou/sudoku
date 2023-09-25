@@ -23,12 +23,6 @@ class SudokuChoicesTest:
 
         self.choices = choices(self.sdk)
 
-class TestStaticSudokuChoices(SudokuChoicesTest, unittest.TestCase):
-
-    def __init__(self, *args, **kwargs):
-        unittest.TestCase.__init__(self, *args, **kwargs)
-        SudokuChoicesTest.__init__(self, StaticSudokuChoices)
-
     def test_all_final(self):
         self.assertFalse(
             self.choices.all_final(),
@@ -52,6 +46,11 @@ class TestStaticSudokuChoices(SudokuChoicesTest, unittest.TestCase):
             self.assertTrue(val == ground_val)
 
 
+class TestStaticSudokuChoices(SudokuChoicesTest, unittest.TestCase):
+
+    def __init__(self, *args, **kwargs):
+        unittest.TestCase.__init__(self, *args, **kwargs)
+        SudokuChoicesTest.__init__(self, StaticSudokuChoices)
 
 
 
