@@ -11,7 +11,8 @@ class Grouping:
         - A parent is one of the box coordinates within a group.
         - The children are the difference of coordinates describing a group,
         with respect to a given parent coordinate.
-        - A grouping is a set of groups described as parents/children.
+        - A grouping is a set of groups described as parents/children,
+        such that it describes the entire 9x9 board.
 
     The parents are described in ARRAY values.
 
