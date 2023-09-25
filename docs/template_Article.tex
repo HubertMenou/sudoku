@@ -1,0 +1,193 @@
+\documentclass[a4paper,twoside, 12pt]{article}
+
+
+%\usepackage[hmargin=3.5cm,top=3.0cm,bottom=4.3cm]{geometry}
+\usepackage[hmargin=2.54cm,top=2.54cm,bottom=2.54cm]{geometry}
+
+
+% Alternative Options:
+%	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
+% Duplex: oneside / twoside
+% Base Font Size: 10pt	 / 11pt / 12pt
+
+
+%% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc} % pour taper les lettres accentuées
+% \usepackage[latin1]{inputenc}
+
+\usepackage{lmodern} %Type1-font for non-english texts and characters
+
+
+%% Packages for Graphics & Figures %%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} %%For loading graphic files
+\usepackage{rotating}
+\usepackage[dvipsnames,table,xcdraw]{xcolor}
+\usepackage{algorithm}	
+\usepackage{algorithmic}
+\usepackage{soul}
+\usepackage{makecell}
+
+%% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+\usepackage{xspace}
+\usepackage{siunitx}
+
+\usepackage{longtable,tabularx, tabulary}
+\usepackage{multirow}
+
+\usepackage[short]{optidef}
+
+\usepackage{pdfpages}
+
+\usepackage{enumerate}
+
+\usepackage{scrextend}
+\usepackage{booktabs}
+
+\usepackage{pifont}
+
+\newcommand{\cmark}{\ding{51}}% Check mark
+\newcommand{\xmark}{\ding{55}}% Cross mark
+\newcommand{\smark}{\ding{72}}% Star
+\newcommand{\tmark}{\ding{168}}% Trèfle
+\newcommand{\dmark}{\ding{169}}% Trèfle
+
+
+%%%%%%%%
+% TIKZ %
+%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=MidnightBlue,          % color of internal links | LinkBlueDark
+	citecolor=ForestGreen,        % color of links to bibliography  | CiteOrangeDark  |  RedViolet
+	filecolor=BrickRed,      % color of file links
+	urlcolor=RoyalBlue           % color of external links
+}
+
+%%%%%%%%%%%%%%%%%
+% CODE SETTINGS %
+%%%%%%%%%%%%%%%%%
+
+\usepackage{listings}
+
+\lstdefinestyle{Python_style}{
+	frame=tb,
+	basicstyle=\footnotesize\ttfamily,
+	language=Python,
+	tabsize=4,
+	numbers=left,
+	morekeywords={with,as},
+	commentstyle=\color{gray},
+	numberstyle=\color{gray}\ttfamily,
+	keywordstyle=\color{RoyalBlue},
+	stringstyle=\color{Bittersweet},
+	captionpos=b
+}
+
+\lstdefinestyle{C_style}{
+	frame=tb,
+	basicstyle=\ttfamily,
+	language=Python,
+	tabsize=4,
+	numbers=left,
+	morekeywords={},
+	commentstyle=\color{gray},
+	numberstyle=\color{gray}\ttfamily,
+	keywordstyle=\color{orange},
+	stringstyle=\color{Bittersweet},
+	captionpos=b
+}
+
+\lstdefinestyle{shell_style}{
+	frame=tb,
+	basicstyle=\ttfamily,
+	language=bash,
+	tabsize=4,
+	numbers=left,
+	morekeywords={ls, cd},
+	commentstyle=\color{black},
+	numberstyle=\color{black}\ttfamily,
+	keywordstyle=\color{MidnightBlue},
+	stringstyle=\color{black},
+	captionpos=b
+}
+
+\lstset{style=Python_style}
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+%% Theorem-like %%
+%%%%%%%%%%%%%%%%%%
+
+% English
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+
+% New commands
+\newcommand{\code}[1]{\texttt{#1}}
+
+
+%% ---------- opening ----------
+\title{Solving a sudoku}
+\author{Hubert Ménou}
+
+\begin{document}
+
+\maketitle
+
+\section{Ideas}
+
+Hello world
+
+\begin{algorithm}[H]
+\caption{\code{SolveSudoku} : Main function}
+\begin{algorithmic}
+\REQUIRE Sudoku \code{initial\_sudoku}
+\STATE \code{queue := SudokuQueue(initial\_sudoku)}
+\WHILE{True}
+	\STATE \code{current\_sudoku := queue.pop()}
+	\STATE \code{(success, solution\_candidate) := DirectSolve(current\_sudoku)}
+	\STATE \textbf{if} \code{success} \textbf{then break}
+	\STATE \code{queue.MakeAChoiceAndAdd(solution\_candidate)}
+\ENDWHILE
+\RETURN \code{solution\_candidate}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{\code{DirectSolve} : Choice free sudoku solver}
+\begin{algorithmic}
+\REQUIRE \code{sudoku}
+\WHILE{True}
+	\IF{\textbf{not} \code{sudoku.IsolateAndClean()}}
+		\RETURN \code{sudoku.isSolved(), sudoku}
+	\ENDIF
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\caption{\code{Sudoku.IsolateAndClean}}
+\begin{algorithmic}
+
+\RETURN
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
