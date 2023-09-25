@@ -6,6 +6,7 @@ from sudoku.cell_groups import Grouping, \
     ColumnGrouping, \
     BoxGrouping
 
+
 def check_if_full_partition(grouping):
     """Computes the partition from a grouping,
     and states whether the partition has empty intersection and
@@ -24,6 +25,7 @@ def check_if_full_partition(grouping):
     else:
         return False, "partition is missing some boxes"
 
+
 class TestCellGroups(unittest.TestCase):
 
     def test_row_grouping(self):
@@ -37,6 +39,7 @@ class TestCellGroups(unittest.TestCase):
     def test_box_grouping(self):
         status, msg = check_if_full_partition(BoxGrouping)
         self.assertTrue(status, msg=msg)
+
 
 if __name__ == "__main__":
     unittest.main()
